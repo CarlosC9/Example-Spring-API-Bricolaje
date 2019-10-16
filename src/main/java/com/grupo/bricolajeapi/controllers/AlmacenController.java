@@ -12,33 +12,33 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.grupo.bricolajeapi.entity.models.Pieza;
-import com.grupo.bricolajeapi.entity.services.IPiezaService;
+import com.grupo.bricolajeapi.entity.models.Almacen;
+import com.grupo.bricolajeapi.entity.services.IAlmacenService;
 
 @RestController
 @CrossOrigin(origins="*",methods= {RequestMethod.GET,RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
-public class PiezaController {
+public class AlmacenController {
 
 	@Autowired
-	private IPiezaService piezaService;
+	private IAlmacenService almacenService;
 	
-	@PostMapping("/pieza")
-	public void crearPieza(Pieza pieza) {
-		piezaService.agregarPieza(pieza);
+	@PostMapping("/almacen")
+	public void agregarAlmacen(Almacen almacen) {
+		almacenService.agregarAlmacen(almacen);
 	}
 	
-	@PutMapping("/pieza")
-	public void actulizarPieza(Pieza pieza) {
-		piezaService.actualizarPieza(pieza);
+	@PutMapping("/almacen")
+	public void actulizarAlmacen(Almacen almacen) {
+		almacenService.actualizarAlmacen(almacen);
 	}
 	
-	@GetMapping("/piezas")
-	public List<Pieza> obtenerPiezas() {
-		return piezaService.obtenerPiezas();
+	@DeleteMapping("/almacen")
+	public void eliminarAlmacen(@RequestParam("numero") long numero) {
+		almacenService.eliminarAlmacen(numero);
 	}
 	
-	@DeleteMapping("/pieza")
-	public void eliminarPieza(@RequestParam("clave") String clave) {
-		piezaService.eliminarPieza(clave);
+	@GetMapping("/almacenes")
+	public List<Almacen> obtenerAlmacenes() {
+		return almacenService.obtenerAlmacenes();
 	}
 }
