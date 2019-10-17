@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.grupo.bricolajeapi.entity.models.Estanteria;
-import com.grupo.bricolajeapi.entity.models.Estanteria.EstanteriaId;
+import com.grupo.bricolajeapi.entity.models.EstanteriaId;
 import com.grupo.bricolajeapi.entity.services.IEstanteriaService;
 
 @RestController

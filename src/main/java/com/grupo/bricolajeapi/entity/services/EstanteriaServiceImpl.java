@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.grupo.bricolajeapi.entity.dao.IEstanteriaDao;
 import com.grupo.bricolajeapi.entity.models.Estanteria;
-import com.grupo.bricolajeapi.entity.models.Estanteria.EstanteriaId;
+import com.grupo.bricolajeapi.entity.models.EstanteriaId;
 
 @Service
 public class EstanteriaServiceImpl implements IEstanteriaService{
