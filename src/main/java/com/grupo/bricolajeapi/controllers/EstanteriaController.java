@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,11 +24,6 @@ public class EstanteriaController {
 		@PostMapping("/estanteria")
 		public void crearPieza(Estanteria estanteria) {
 			estanteriaService.agregarEstanteria(estanteria);
-		}
-		
-		@PutMapping("/estanteria")
-		public void actulizarPieza(Estanteria estanteria) {
-			estanteriaService.actualizarEstanteria(estanteria);
 		}
 		
 		@GetMapping("/estanterias")

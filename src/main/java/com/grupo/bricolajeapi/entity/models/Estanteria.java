@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 @Entity(name = "estanterias")
 public class Estanteria implements Serializable {
 
-	private static final long serialVersionUID = 2L;
+	private static final long serialVersionUID = 4L;
 	
 	@EmbeddedId
     private EstanteriaId id;
