@@ -1,11 +1,24 @@
 package com.grupo.bricolajeapi.entity.models;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
+import javax.persistence.JoinColumn;
+
+/*@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, 
+property = "@id")*/
 
 @Entity(name = "piezas")
 public class Pieza implements Serializable {
@@ -20,6 +33,17 @@ public class Pieza implements Serializable {
 	
 	@Column
 	private double precio;
+	
+	@JsonIgnoreProperties({"piezas"})
+	@ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "compone",
+    joinColumns = @JoinColumn(name = "clave_pieza"),
+    inverseJoinColumns = @JoinColumn(name = "clave_componente"))
+	private List<Pieza> piezas;
+	
+	@ManyToMany(mappedBy = "piezas")
+	List<Estanteria> estanterias;
+	
 	
 	public Pieza() {}
 
@@ -53,6 +77,18 @@ public class Pieza implements Serializable {
 	public void setPrecio(float precio) {
 		this.precio = precio;
 	}
+
+	public List<Pieza> getPiezas() {
+		return piezas;
+	}
+
+	public void setPiezas(List<Pieza> piezas) {
+		this.piezas = piezas;
+	}
+	
+	
+	
+	
 	
 	
 }
