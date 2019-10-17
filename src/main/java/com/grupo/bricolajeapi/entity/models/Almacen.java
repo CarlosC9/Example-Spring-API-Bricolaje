@@ -31,7 +31,14 @@ public class Almacen implements Serializable {
 	private List<Estanteria> estanterias;
 
 	
-	
+	public List<Estanteria> getEstanterias() {
+		return estanterias;
+	}
+
+	public void setEstanterias(List<Estanteria> estanterias) {
+		this.estanterias = estanterias;
+	}
+
 	public long getNumero() {
 		return numero;
 	}

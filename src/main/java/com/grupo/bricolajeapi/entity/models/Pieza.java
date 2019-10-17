@@ -37,14 +37,26 @@ public class Pieza implements Serializable {
 	@JsonIgnoreProperties({"piezas"})
 	@ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "compone",
-    joinColumns = @JoinColumn(name = "clave_pieza"),
-    inverseJoinColumns = @JoinColumn(name = "clave_componente"))
+    		   joinColumns = @JoinColumn(name = "clave_pieza"),
+    		   inverseJoinColumns = @JoinColumn(name = "clave_componente"))
 	private List<Pieza> piezas;
 	
+	@JsonIgnoreProperties({"piezas"})
 	@ManyToMany(mappedBy = "piezas")
 	List<Estanteria> estanterias;
 	
-	
+	public List<Estanteria> getEstanterias() {
+		return estanterias;
+	}
+
+	public void setEstanterias(List<Estanteria> estanterias) {
+		this.estanterias = estanterias;
+	}
+
+	public void setPrecio(double precio) {
+		this.precio = precio;
+	}
+
 	public Pieza() {}
 
 	public Pieza(String clave, String descripcion, float precio) {
