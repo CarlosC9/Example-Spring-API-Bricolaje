@@ -3,6 +3,8 @@ import java.io.Serializable;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity(name = "estanterias")
 public class Estanteria implements Serializable {
@@ -11,6 +13,11 @@ public class Estanteria implements Serializable {
 	
 	@EmbeddedId
     private EstanteriaId id;
+	
+	@ManyToOne
+	@JoinColumn(name="num_almacen", insertable = false, updatable = false)
+	private Almacen almacen;
+
 	
     public Estanteria() {
 	}

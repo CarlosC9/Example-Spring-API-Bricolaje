@@ -29,6 +29,7 @@ public class EstanteriaServiceImpl implements IEstanteriaService{
 
 	@Override
 	public void eliminarEstanteria(EstanteriaId estanteriaId) {
+		if (estanteriaDao.existsById(estanteriaId))
 		estanteriaDao.deleteById(estanteriaId);
 	}
 
